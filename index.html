@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hoàng Anh đẹp trai không?</title>
+  <style>
+    body {
+      background: radial-gradient(circle, #ffe082, #ffca28);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 500px;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .card h1 {
+      font-size: 2em;
+      color: #ff6f00;
+      margin-bottom: 20px;
+    }
+    .card p {
+      font-size: 1.2em;
+      color: #333;
+      margin-top: 15px;
+    }
+    button {
+      padding: 10px 25px;
+      margin: 10px;
+      font-size: 1em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    button:hover {
+      transform: scale(1.1);
+    }
+    #yesBtn {
+      background-color: #4caf50;
+      color: white;
+    }
+    #noBtn {
+      background-color: #f44336;
+      color: white;
+      position: absolute;
+    }
+    .hidden {
+      display: none;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card" id="questionCard">
+    <h1>Hoàng Anh đẹp trai không?</h1>
+    <button id="yesBtn">Có 🥰</button>
+    <button id="noBtn">Không 🤨</button>
+  </div>
+
+  <div class="card hidden" id="wishCard">
+    <h1 class="sparkle">Vì bạn đã khen Ha đẹp trai nên Ha có lời chúc cho bạn ✨</h1>
+    <p>
+      Chúc bạn thi tốt nghiệp điểm thật cao cao cao... và đỗ nv1 tmđt neu nhaaaa!
+    </p>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    const questionCard = document.getElementById('questionCard');
+    const wishCard = document.getElementById('wishCard');
+
+    noBtn.addEventListener('mouseover', () => {
+      const i = Math.floor(Math.random() * (window.innerWidth - 120));
+      const j = Math.floor(Math.random() * (window.innerHeight - 60));
+      noBtn.style.left = `${i}px`;
+      noBtn.style.top = `${j}px`;
+    });
+
+    yesBtn.addEventListener('click', () => {
+      questionCard.classList.add('hidden');
+      wishCard.classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
